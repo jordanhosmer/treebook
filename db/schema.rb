@@ -11,7 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701041507) do
+# If you're missing a table when running the test suite, it's probably an indication that you need to run:
+# rake db:test:prepare
+
+ActiveRecord::Schema.define(:version => 20130801050758) do
 
   create_table "statuses", :force => true do |t|
     t.text     "content"
@@ -27,8 +30,10 @@ ActiveRecord::Schema.define(:version => 20130701041507) do
     t.integer  "friend_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "state"
   end
 
+  add_index "user_friendships", ["state"], :name => "index_user_friendships_on_state"
   add_index "user_friendships", ["user_id", "friend_id"], :name => "index_user_friendships_on_user_id_and_friend_id"
 
   create_table "users", :force => true do |t|

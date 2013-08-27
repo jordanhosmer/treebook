@@ -10,11 +10,13 @@
  *
  *= require_self
  *= require_tree .
+ *= require flat-ui
  */
 
 
+
 body {
-	padding-top: 40px;
+	padding-top: 80px;
 }
 
 .alert {

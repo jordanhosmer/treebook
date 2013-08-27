@@ -8,9 +8,11 @@ gem 'rails', '3.2.12'
 
 gem 'devise'
 gem 'simple_form'
+gem 'state_machine'
 
 group :test do
 	gem 'shoulda'
+	gem 'factory_girl_rails'
 end
 
 group :development, :test do
@@ -34,6 +36,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'flatui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
