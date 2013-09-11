@@ -4,17 +4,17 @@ class UserFriendshipTest < ActiveSupport::TestCase
   should belong_to(:user)
   should belong_to(:friend)
 
-  test "that creating a friendship works without raising an exception" do 
-  	assert_nothing_raised do
-	  	UserFriendship.create user: users(:jason), friend: users(:mike)
-	end
+  test "that creating a friendship works without raising an exception" do
+    assert_nothing_raised do
+      UserFriendship.create user: users(:jason), friend: users(:mike)
+    end
   end
 
   test "that creating a friendship based on user id and friend id works" do
-  	UserFriendship.create user_id: users(:jason).id, friend_id: users(:mike).id
-  	assert users(:jason).pending_friends.include?(users(:mike))
+    UserFriendship.create user_id: users(:jason).id, friend_id: users(:mike).id
+    assert users(:jason).pending_friends.include?(users(:mike))
   end
-  
+
   context "a new instance" do
     setup do
       @user_friendship = UserFriendship.new user: users(:jason), friend: users(:mike)
@@ -27,7 +27,7 @@ class UserFriendshipTest < ActiveSupport::TestCase
 
   context "#send_request_email" do
     setup do
-      @user_friendship = UserFriendship.create user: users(:jason), friend: users(:mike) 
+      @user_friendship = UserFriendship.create user: users(:jason), friend: users(:mike)
     end
 
     should "send an email" do
@@ -63,14 +63,14 @@ class UserFriendshipTest < ActiveSupport::TestCase
       assert_equal 'accepted', friendship2.state
     end
   end
-      
+
   context "#accept!" do
     setup do
       @user_friendship = UserFriendship.request users(:jason), users(:mike)
     end
 
     should "set the state to accepted" do
-      @user_friendship.accept! 
+      @user_friendship.accept!
       assert_equal "accepted", @user_friendship.state
     end
 
@@ -132,20 +132,22 @@ class UserFriendshipTest < ActiveSupport::TestCase
       assert !UserFriendship.exists?(@friendship2.id)
     end
   end
+
+  context "#block!" do
+    setup do
+      @user_friendship = UserFriendship.request users(:jason), users(:mike)
+    end
+
+    should "set the state to blocked" do
+      @user_friendship.block!
+      assert_equal 'blocked', @user_friendship.state
+      assert_equal 'blocked', @user_friendship.mutual_friendship.state
+    end
+
+    should "not allow new requests once blocked" do
+      @user_friendship.block!
+      uf = UserFriendship.request users(:jason), users(:mike)
+      assert !uf.save
+    end
+  end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
