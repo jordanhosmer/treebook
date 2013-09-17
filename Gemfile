@@ -12,6 +12,7 @@ gem 'state_machine'
 gem 'draper', '~> 1.0'
 gem 'js-routes'
 gem 'paperclip'
+gem 'rails_12factor'
 
 group :development do
 	gem 'thin'
