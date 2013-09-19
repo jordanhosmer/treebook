@@ -30,8 +30,6 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.2.2.0)
-      sass (~> 3.2)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -63,10 +61,6 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
-    flatui-rails (0.0.4)
-      bootstrap-sass (= 2.2.2)
-      railties (>= 3.1)
-      sass-rails (>= 3.2.0)
     hike (1.2.2)
     i18n (0.6.4)
     journey (1.0.4)
@@ -106,11 +100,6 @@ GEM
       activesupport (= 3.2.12)
       bundler (~> 1.0)
       railties (= 3.2.12)
-    rails_12factor (0.0.2)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.1)
-    rails_stdout_logging (0.0.2)
     railties (3.2.12)
       actionpack (= 3.2.12)
       activesupport (= 3.2.12)
@@ -167,14 +156,12 @@ DEPENDENCIES
   devise
   draper (~> 1.0)
   factory_girl_rails
-  flatui-rails
   jquery-rails
   js-routes
   log_buddy
   paperclip
   pg
   rails (= 3.2.12)
-  rails_12factor
   sass-rails (~> 3.2.3)
   shoulda
   simple_form
