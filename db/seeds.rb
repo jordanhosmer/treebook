@@ -62,11 +62,11 @@ ryan  = User.find_by_email('ryan@teamtreehouse.com')
 
 seed_user = jason
 
-seed_user.statuses.create(content: "Hello, world!")
-jim.statuses.create(content: "Hi, I'm Jim")
-nick.statuses.create(content: "Hello from the internet!")
-mike.statuses.create(content: "I want to learn html javapress")
-ryan.statuses.create(content: "Treebook is awesome!")
+seed_user.statuses.create(content: "This is awesome, can't wait to hear what you guys are up to! I'm headed to Point Reyes.")
+jim.statuses.create(content: "I can't wait to head out camping this weekend!")
+nick.statuses.create(content: "Yea, I'm going mountain biking Saturday at China Camp")
+mike.statuses.create(content: "Anyone down for a ride up Mt. Diablo?")
+ryan.statuses.create(content: "I think I could be down for that, or Marin...")
 
 UserFriendship.request(seed_user, jim).accept!
 UserFriendship.request(seed_user, nick).block!
